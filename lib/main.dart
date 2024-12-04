@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:green_grow/login/login.dart';
+import 'package:green_grow/login/login.dart'; // Pastikan file ini ada dan sesuai dengan lokasi
 
 void main() {
   runApp(const MyApp());
@@ -8,18 +8,15 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'SIP Kopi',
-      home: 
-      
-      LoginPage(),
-       routes: {
-        '/home': (context) => LoginPage(), 
-      },
+      title: 'Green Grow',
+      // theme: ThemeData(
+      //   primarySwatch: Colors.green, 
+      // ),
+      home: const LoginPage(), 
     );
   }
 }
