@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:green_grow/custom/custommenubutton.dart';
+import 'package:green_grow/homepage/petunjuk.dart';
+import 'package:green_grow/login/login.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -32,27 +35,25 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                _buildMenuButton(context, 'MULAI', () {
-                  // Aksi untuk MULAI, misalnya navigasi ke halaman lain
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const MulaiPage()), // Ganti dengan halaman yang sesuai
-                  );
-                }),
-                _buildMenuButton(context, 'PERINGKAT', () {
-                  // Aksi untuk PERINGKAT
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const PeringkatPage()), // Ganti dengan halaman yang sesuai
-                  );
-                }),
-                _buildMenuButton(context, 'PETUNJUK', () {
-                  // Aksi untuk PETUNJUK
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const PetunjukPage()), // Ganti dengan halaman yang sesuai
-                  );
-                }),
+             _buildMenuButton(context, 'MULAI', () {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const MulaiPage()),
+  );
+}),
+_buildMenuButton(context, 'PERINGKAT', () {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const PeringkatPage()),
+  );
+}),
+_buildMenuButton(context, 'PETUNJUK', () {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => PetunjukPage()),
+  );
+}),
+
               ],
             ),
           ),
@@ -69,7 +70,10 @@ class HomePage extends StatelessWidget {
                 const SizedBox(width: 10),
                 _buildIconButton(Icons.logout, () {
                   // Aksi untuk Logout
-                  _showDialog(context, "Logout", "Anda belum login.");
+                   Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
+                );
                 }),
               ],
             ),
@@ -79,28 +83,35 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildMenuButton(BuildContext context, String text, VoidCallback onPressed) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.lightGreen,
-          padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 15),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+Widget _buildMenuButton(BuildContext context, String text, VoidCallback onPressed) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(vertical: 8.0),
+    child: GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        width: 250, // Sesuaikan ukuran tombol
+        padding: const EdgeInsets.symmetric(vertical: 15),
+        decoration: BoxDecoration(
+          image: const DecorationImage(
+            image: AssetImage('assets/image/bg2.png'), // Path ke gambar background tombol Anda
+            fit: BoxFit.fill,
           ),
+          borderRadius: BorderRadius.circular(20),
         ),
-        onPressed: onPressed,
-        child: Text(
-          text,
-          style: GoogleFonts.luckiestGuy(
-            fontSize: 18,
-            color: Colors.white,
+        child: Center(
+          child: Text(
+            text,
+            style: GoogleFonts.luckiestGuy(
+              fontSize: 20,
+              color: Colors.green.shade800,
+            ),
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
+}
+
 
   Widget _buildIconButton(IconData icon, VoidCallback onPressed) {
     return IconButton(
@@ -154,14 +165,4 @@ class PeringkatPage extends StatelessWidget {
   }
 }
 
-class PetunjukPage extends StatelessWidget {
-  const PetunjukPage({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Petunjuk")),
-      body: const Center(child: Text("Halaman PETUNJUK")),
-    );
-  }
-}

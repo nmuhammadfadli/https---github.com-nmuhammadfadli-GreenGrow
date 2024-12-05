@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:green_grow/login/login.dart'; // Pastikan file ini ada dan sesuai dengan lokasi
+import 'package:green_grow/login/login.dart'; 
+import 'package:green_grow/splashscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,10 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Green Grow',
-      // theme: ThemeData(
-      //   primarySwatch: Colors.green, 
-      // ),
-      home: const LoginPage(), 
+      home: const SplashScreen(), 
     );
   }
 }
