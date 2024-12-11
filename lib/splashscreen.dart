@@ -85,8 +85,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     color: Colors.white,
                   ),
                 ),
-                const SizedBox(height: 30),
-                // Progress bar
+                const SizedBox(height: 160),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 50),
                   child: Column(
@@ -97,7 +96,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         color: Colors.green,
                         minHeight: 10,
                       ),
-                      const SizedBox(height: 40),
+                      const SizedBox(height: 5),
                       Text(
                         "${(_progressValue * 100).toInt()}%",
                         style: GoogleFonts.roboto(

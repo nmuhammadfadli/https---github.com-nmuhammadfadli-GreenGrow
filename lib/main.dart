@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:green_grow/login/login.dart'; 
 import 'package:green_grow/splashscreen.dart';
+import 'package:green_grow/custom/globalaudioplayer.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Inisialisasi audio player global
+  final audioPlayer = GlobalAudioPlayer();
+  await audioPlayer.playMusic();
+
+  // Jalankan aplikasi
   runApp(const MyApp());
 }
 
@@ -14,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Green Grow',
-      home: const SplashScreen(), 
+      home: const SplashScreen(), // Pastikan SplashScreen benar
     );
   }
 }

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:green_grow/custom/custommenubutton.dart';
+import 'package:green_grow/homepage/peringkat.dart';
 import 'package:green_grow/homepage/petunjuk.dart';
 import 'package:green_grow/login/login.dart';
+import 'package:green_grow/homepage/game/mulaigame.dart';
+import 'package:green_grow/pengaturan.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -21,42 +24,58 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-          // Buttons dan Konten di Tengah
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "GREEN GROW",
-                  style: GoogleFonts.luckiestGuy(
-                    fontSize: 40,
-                    color: Colors.white,
-                    letterSpacing: 2,
-                  ),
-                ),
-                const SizedBox(height: 20),
-             _buildMenuButton(context, 'MULAI', () {
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => const MulaiPage()),
-  );
-}),
-_buildMenuButton(context, 'PERINGKAT', () {
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => const PeringkatPage()),
-  );
-}),
-_buildMenuButton(context, 'PETUNJUK', () {
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => PetunjukPage()),
-  );
-}),
-
-              ],
+       Center(
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Stack(
+        alignment: Alignment.center,
+        children: [
+          Text(
+            "GREEN GROW",
+            style: GoogleFonts.luckiestGuy(
+              fontSize: 40,
+              letterSpacing: 2,
+              foreground: Paint()
+                ..style = PaintingStyle.stroke
+                ..strokeWidth = 6 // Ketebalan stroke
+                ..color = Colors.green.shade900, // Warna stroke hijau
             ),
           ),
+          // Lapisan isi teks putih
+          Text(
+            "GREEN GROW",
+            style: GoogleFonts.luckiestGuy(
+              fontSize: 40,
+              color: Colors.white, // Warna isi teks
+              letterSpacing: 2,
+            ),
+          ),
+        ],
+      ),
+      const SizedBox(height: 20),
+      _buildMenuButton(context, 'MULAI', () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const MulaiGamePage()),
+        );
+      }),
+      _buildMenuButton(context, 'PERINGKAT', () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const PeringkatPage()),
+        );
+      }),
+      _buildMenuButton(context, 'PETUNJUK', () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => PetunjukPage()),
+        );
+      }),
+    ],
+  ),
+),
+
           // Settings dan Logout di Kanan Bawah
           Positioned(
             bottom: 20,
@@ -64,8 +83,10 @@ _buildMenuButton(context, 'PETUNJUK', () {
             child: Row(
               children: [
                 _buildIconButton(Icons.settings, () {
-                  // Aksi untuk Settings
-                  _showDialog(context, "Pengaturan", "Fitur pengaturan belum tersedia.");
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const PengaturanPage()),
+                );
                 }),
                 const SizedBox(width: 10),
                 _buildIconButton(Icons.logout, () {
@@ -153,16 +174,6 @@ class MulaiPage extends StatelessWidget {
   }
 }
 
-class PeringkatPage extends StatelessWidget {
-  const PeringkatPage({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Peringkat")),
-      body: const Center(child: Text("Halaman PERINGKAT")),
-    );
-  }
-}
 
 

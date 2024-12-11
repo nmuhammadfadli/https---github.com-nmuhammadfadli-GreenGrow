@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:green_grow/homepage/home.dart';
 import 'package:green_grow/login/register.dart';
+import 'package:green_grow/pengaturan.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -209,8 +210,10 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   IconButton(
                     onPressed: () {
-                      _showDialog(
-                          "Pengaturan", "Fitur pengaturan belum tersedia.");
+        //                 Navigator.push(
+        //   context,
+        //   MaterialPageRoute(builder: (context) => PengaturanPage()),
+        // );
                     },
                     icon: const Icon(
                       Icons.settings,
