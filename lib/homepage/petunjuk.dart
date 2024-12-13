@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:green_grow/pengaturan.dart';
 
 class PetunjukPage extends StatelessWidget {
   const PetunjukPage({Key? key}) : super(key: key);
@@ -67,7 +68,10 @@ class PetunjukPage extends StatelessWidget {
             child: Row(
               children: [
                 _buildIconButton(Icons.settings, () {
-                  _showDialog(context, "Pengaturan", "Fitur pengaturan belum tersedia.");
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const PengaturanPage()),
+                );
                 }),
                 const SizedBox(width: 10),
                 _buildIconButton(Icons.logout, () {

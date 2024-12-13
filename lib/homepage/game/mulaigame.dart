@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:green_grow/custom/custommenubutton.dart';
 import 'package:green_grow/homepage/game/pembibitan/pembibitan.dart';
+import 'package:green_grow/homepage/game/perawatan/perawatan.dart';
 import 'package:green_grow/homepage/home.dart';
 import 'package:green_grow/homepage/petunjuk.dart';
 import 'package:green_grow/login/login.dart';
+import 'package:green_grow/pengaturan.dart';
 
 class MulaiGamePage extends StatelessWidget {
   const MulaiGamePage({super.key});
@@ -63,7 +65,7 @@ class MulaiGamePage extends StatelessWidget {
 _buildMenuButton(context, 'PERAWATAN', () {
   Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => const PeringkatPage()),
+    MaterialPageRoute(builder: (context) => const PerawatanPage()),
   );
 }),
 _buildMenuButton(context, 'PANEN', () {
@@ -83,8 +85,10 @@ _buildMenuButton(context, 'PANEN', () {
             child: Row(
               children: [
                 _buildIconButton(Icons.settings, () {
-                  // Aksi untuk Settings
-                  _showDialog(context, "Pengaturan", "Fitur pengaturan belum tersedia.");
+                   Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const PengaturanPage()),
+                );
                 }),
                 const SizedBox(width: 10),
                 _buildIconButton(Icons.logout, () {

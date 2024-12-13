@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:green_grow/custom/custommenubutton.dart';
+import 'package:green_grow/homepage/game/perawatan/testperawatan.dart';
+import 'package:green_grow/homepage/game/perawatan/tutorialperawatan.dart';
 import 'package:green_grow/homepage/home.dart';
-import 'package:green_grow/homepage/petunjuk.dart';
 import 'package:green_grow/login/login.dart';
+import 'package:green_grow/pengaturan.dart';
 
 class PerawatanPage extends StatelessWidget {
   const PerawatanPage({super.key});
@@ -27,31 +29,48 @@ class PerawatanPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  "GREEN GROW",
-                  style: GoogleFonts.luckiestGuy(
-                    fontSize: 40,
-                    color: Colors.white,
-                    letterSpacing: 2,
-                  ),
-                ),
+                Stack(
+        alignment: Alignment.center,
+        children: [
+          Text(
+            "PERAWATAN",
+            style: GoogleFonts.luckiestGuy(
+              fontSize: 40,
+              letterSpacing: 2,
+              foreground: Paint()
+                ..style = PaintingStyle.stroke
+                ..strokeWidth = 6 // Ketebalan stroke
+                ..color = Colors.green.shade900, // Warna stroke hijau
+            ),
+          ),
+          // Lapisan isi teks putih
+          Text(
+            "PERAWATAN",
+            style: GoogleFonts.luckiestGuy(
+              fontSize: 40,
+              color: Colors.white, // Warna isi teks
+              letterSpacing: 2,
+            ),
+          ),
+        ],
+      ),
                 const SizedBox(height: 20),
-             _buildMenuButton(context, 'VIDEO TURORIAL', () {
+             _buildMenuButton(context, 'VIDEO TUTORIAL', () {
   Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => const MulaiPage()),
+    MaterialPageRoute(builder: (context) => const TutorialPerawatanPage()),
   );
 }),
 _buildMenuButton(context, 'SIMULASI', () {
   Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => const PeringkatPage()),
+    MaterialPageRoute(builder: (context) =>  TestPerawatan()),
   );
 }),
 _buildMenuButton(context, 'POST TEST', () {
   Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => PetunjukPage()),
+    MaterialPageRoute(builder: (context) => TestPerawatan()),
   );
 }),
 
@@ -65,8 +84,10 @@ _buildMenuButton(context, 'POST TEST', () {
             child: Row(
               children: [
                 _buildIconButton(Icons.settings, () {
-                  // Aksi untuk Settings
-                  _showDialog(context, "Pengaturan", "Fitur pengaturan belum tersedia.");
+                   Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const PengaturanPage()),
+                );
                 }),
                 const SizedBox(width: 10),
                 _buildIconButton(Icons.logout, () {

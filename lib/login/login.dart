@@ -83,14 +83,31 @@ class _LoginPageState extends State<LoginPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const SizedBox(height: 15),
-                      Text(
-                        "LOGIN",
-                        style: GoogleFonts.luckiestGuy(
-                          fontSize: 35,
-                          color: Colors.white,
-                          letterSpacing: 2,
-                        ),
-                      ),
+                      Stack(
+        alignment: Alignment.center,
+        children: [
+          Text(
+            "LOGIN",
+            style: GoogleFonts.luckiestGuy(
+              fontSize: 40,
+              letterSpacing: 2,
+              foreground: Paint()
+                ..style = PaintingStyle.stroke
+                ..strokeWidth = 6 // Ketebalan stroke
+                ..color = Colors.green.shade900, // Warna stroke hijau
+            ),
+          ),
+          // Lapisan isi teks putih
+          Text(
+            "LOGIN",
+            style: GoogleFonts.luckiestGuy(
+              fontSize: 40,
+              color: Colors.white, // Warna isi teks
+              letterSpacing: 2,
+            ),
+          ),
+        ],
+      ),
                       const SizedBox(height: 0),
                      Container(
   padding: const EdgeInsets.all(20),

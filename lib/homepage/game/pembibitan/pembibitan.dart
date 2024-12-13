@@ -6,6 +6,7 @@ import 'package:green_grow/homepage/game/pembibitan/tutorialpembibitan.dart';
 import 'package:green_grow/homepage/home.dart';
 import 'package:green_grow/homepage/petunjuk.dart';
 import 'package:green_grow/login/login.dart';
+import 'package:green_grow/pengaturan.dart';
 
 class PembibitanPage extends StatelessWidget {
   const PembibitanPage({super.key});
@@ -84,8 +85,10 @@ _buildMenuButton(context, 'POST TEST', () {
             child: Row(
               children: [
                 _buildIconButton(Icons.settings, () {
-                  // Aksi untuk Settings
-                  _showDialog(context, "Pengaturan", "Fitur pengaturan belum tersedia.");
+                 Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const PengaturanPage()),
+                );
                 }),
                 const SizedBox(width: 10),
                 _buildIconButton(Icons.logout, () {

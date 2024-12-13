@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:green_grow/homepage/game/mulaigame.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:green_grow/homepage/game/pembibitan/pembibitan.dart';
+import 'package:green_grow/homepage/game/perawatan/perawatan.dart';
 
-class HasilKuisPage extends StatelessWidget {
+class HasilPerawatan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -112,7 +113,7 @@ class HasilKuisPage extends StatelessWidget {
                   // Aksi untuk Logout
                    Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const PembibitanPage()),
+                  MaterialPageRoute(builder: (context) => const PerawatanPage()),
                 );
                 }),
               ],

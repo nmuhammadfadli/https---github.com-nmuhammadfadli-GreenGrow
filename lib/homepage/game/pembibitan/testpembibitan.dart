@@ -178,7 +178,7 @@ class _TestPembibitanState extends State<TestPembibitan> {
                     children: [
                       Text(
                         questions[currentQuestion]['question'] as String,
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                        style: GoogleFonts.aBeeZee(fontSize: 18, fontWeight: FontWeight.w600),
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(height: 0),
@@ -217,8 +217,8 @@ class _TestPembibitanState extends State<TestPembibitan> {
       // Teks tombol
       Text(
         answer['text'] as String,
-        style: TextStyle(
-          fontSize: 14,
+        style: GoogleFonts.akshar(
+          fontSize: 18,
           color: Colors.green.shade700,
           fontWeight: FontWeight.bold,
         ),
