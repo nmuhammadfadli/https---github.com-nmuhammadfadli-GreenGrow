@@ -65,8 +65,12 @@ flutter:
   assets:
    - assets/image/
    - assets/audio/
+   - assets/audio/drone1.png
+
    - assets/audio/backsound.mp3
    - assets/image/bg2.png
+   - assets/image/drone.png
+   - assets/image/drone2.jpg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

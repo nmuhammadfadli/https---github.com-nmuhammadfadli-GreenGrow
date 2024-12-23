@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:green_grow/custom/custommenubutton.dart';
+import 'package:green_grow/homepage/game/pembibitan/simulasipembibitan.dart';
 import 'package:green_grow/homepage/game/pembibitan/testpembibitan.dart';
 import 'package:green_grow/homepage/game/pembibitan/tutorialpembibitan.dart';
 import 'package:green_grow/homepage/home.dart';
@@ -65,7 +66,7 @@ class PembibitanPage extends StatelessWidget {
 _buildMenuButton(context, 'SIMULASI', () {
   Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => const PeringkatPage()),
+    MaterialPageRoute(builder: (context) =>  SimulasiPage()),
   );
 }),
 _buildMenuButton(context, 'POST TEST', () {
